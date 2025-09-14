@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevShop — Stylish E‑Commerce </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <a href="#" id="home-link"><span class="logo">DevShop</span></a>
+      </div>
+      <div class="search-bar">
+        <input id="search" placeholder="Search products, e.g. sneakers" />
+      </div>
+      <div class="header-actions">
+        <button id="admin-btn" class="btn small ghost">+ Add Product</button>
+        <div id="cart-btn" class="cart-btn">
+          <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2h2l1 9h10l1-6H9"/></svg>
+          <span id="cart-count">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Shop the curated collection</h1>
+        <p>Modern UI, smooth animations, and full local‑storage powered cart & admin.</p>
+      </div>
+      <div class="hero-cta">
+        <button id="scroll-products" class="btn primary">Browse Products</button>
+      </div>
+    </section>
+
+    <section class="filters">
+      <div>
+        <label>Sort:
+          <select id="sort">
+            <option value="default">Recommended</option>
+            <option value="price-asc">Price — low to high</option>
+            <option value="price-desc">Price — high to low</option>
+            <option value="name-asc">Name A → Z</option>
+            <option value="name-desc">Name Z → A</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>Category:
+          <select id="category-filter">
+            <option value="all">All</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="products" class="product-grid">
+      <!-- Products injected by JS -->
+    </section>
+
+    <section id="empty-note" class="empty-note" hidden>
+      <p>No products found — add a product using <strong>Add Product</strong>.</p>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="close-cart" class="btn ghost">Close</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+      <!-- cart items -->
+    </div>
+    <div class="cart-footer">
+      <div class="totals">
+        <div>Subtotal</div>
+        <div id="cart-subtotal">₹0.00</div>
+      </div>
+      <button id="checkout-btn" class="btn primary full">Checkout</button>
+      <button id="clear-cart" class="btn ghost full">Clear Cart</button>
+    </div>
+  </aside>
+
+  <!-- Admin Modal -->
+  <div id="admin-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <header>
+        <h3>Add / Edit Product</h3>
+        <button id="close-admin" class="btn ghost">✕</button>
+      </header>
+      <form id="product-form">
+        <label>Product Name<input id="p-name" required /></label>
+        <label>Price (INR)<input id="p-price" type="number" min="0" required /></label>
+        <label>Category<input id="p-category" placeholder="e.g. Shoes" /></label>
+        <label>Image URL (optional)<input id="p-image" placeholder="leave blank for default" /></label>
+        <label>Description<textarea id="p-desc" rows="3"></textarea></label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save Product</button>
+          <button type="button" id="reset-form" class="btn ghost">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <header>
+        <h3>Checkout</h3>
+        <button id="close-checkout" class="btn ghost">✕</button>
+      </header>
+      <div id="order-summary">
+        <!-- Summary injected -->
+      </div>
+      <form id="checkout-form">
+        <label>Full name<input id="c-name" required /></label>
+        <label>Email<input id="c-email" type="email" required /></label>
+        <label>Address<textarea id="c-address" rows="3" required></textarea></label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Place Order</button>
+          <button type="button" id="cancel-checkout" class="btn ghost">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Made with ❤️ by Dev • </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
